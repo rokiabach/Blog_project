@@ -25,27 +25,16 @@
                 <h3 class="text-whitesmoke">Clean Blog</h3>
                 <p class="text-whitesmoke">S'inscrire </p>
             <div class="container-content">
-                <form class="margin-t">
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Nom" required="">
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Prénom" required="">
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="email" required="">
-                    </div>
-                    <div class="form-group">
-                        <input type="password" class="form-control" placeholder="Mot de passe" required="">
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Confirmer le mot de passe" required="">
-                    </div>
+                <form class="margin-t" action="{% url 'register' %}" method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }} 
+                
+    
                     <button type="submit" class="form-button button-l margin-b">S'inscrire</button>
     
                     <!--<a class="text-darkyellow" href="#"><small>Mot de passe oublié ?</small></a>-->
                     <p class="text-whitesmoke text-center"><small>Vous avez déjà un compte ?</small></p>
-                    <a class="text-darkyellow" href="{% url 'connexion' %}"><small>Se connecter</small></a>
+                    <a class="text-darkyellow" href="{% url 'login' %}"><small>Se connecter</small></a>
                 </form>
             </div>
         </div>
